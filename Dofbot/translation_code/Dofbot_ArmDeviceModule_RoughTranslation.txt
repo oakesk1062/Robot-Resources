@@ -1,0 +1,53 @@
+class Arm_Device(builtins.object)
+	Methods defined here:
+	
+	Arm_Action_Mode(self, mode):
+		# the running mode of action group 0:STOP running 1: running once 2: running in loop
+	Arm_Action_Study(self):
+		# under study mode, record the current action once
+	Arm_Button_Mode(self, mode)
+		#set K1 button mode, 0:default 1: study
+	Arm_Button_Off(self)
+		# shut off the buzzer
+	Arm_Button_On(self)
+		# open the buzzer, delay will be set to default as 0xff, the buzzer will keep running.
+		# delay=1-50, buzzer open, the buzzer will automatically shut off after 100ms delay, the     			longest delay possible is 5 seconds.
+	Arm_Clear_Action(self)
+		# empty action group
+	Arm_PWM_servo_write(self, id, angle)
+		# PWM steering gear control id:1-6(0 controls all the steering geer) angle: 0-100
+	Arm_Product_Select(self, index)
+		# set the color of the current product 1-6, RGB light indicates the corresponding color
+	Arm_RGB_set(self, red, green, blue)
+		# Set the RGB to designated color
+	Arm_Read_Action_Num(self)
+		# Read the number of saved action group
+	Arm_get_hardversion(self)
+		# Read hardware version
+	Arm_ping_servo(self)
+		# Read Servo status, return 0xda if normal, return 0x00 if cannot read, other means 		steering gear error
+	Arm_reset(self)
+		# restart the driver board
+	Arm_serial_servo_read(self, id)
+		# read designated Servo angle, id: 1-6 return 0-100, return None if reading error
+	Arm_serial_servo_read_any(self, id)
+		# read the main Servo angle, id: 1-250 return 0-100
+	Arm_serial_servo_write(self, id, angle, time)
+		# set the main servo angle connect: id: 1-6(0 means all 6 servo) angle: 0-100 set the angle 		that servo should be moved to
+	Arm_serial_servo_write6(self, s1, s2, s3, s4, s5, s6, time)
+		# set the angle that main servo connect: s1-s4 and s6: 0-180, s5: 0-270, time = 'running time'
+	Arm_serial_servo_write6_array(self, joints, time)
+		# set the angular interface for main servo : array
+	Arm_serial_servo_write_any(self, id, angle, time)
+		# set angular interface for any servo : id: 1-250(0 is send in group) angle: 0-100 		representation: 900 3100 0-180
+	Arm_serial_servo_write_offset_state(self)
+		# read the main servo offset status, 0 means cannot find coresponding servo ID, 1 means 		succeed, 2 means failed and exceed range.
+	Arm_serial_servo_write_offet_switch(self, id)
+		# set main servo offset by one step, upper electric set to amin, then send the following 		function, id: 1-6(set), 0 (resume default)
+	Arm_serial_set_id(self, id)
+		#set the serial number of main servo
+	Arm_serial_set_torque(self, onoff)
+		# torque switch 1: torque on 0: torque off (manual move possible)
+	__init__(self)
+		Initialize self. See help(tyor(self)) for accurate signature.
+	

@@ -1,0 +1,2 @@
+The battery voltage is less than 10. The robot low battery warning occurs at 9.6.
+Switching robots and charging this one is recommended.
